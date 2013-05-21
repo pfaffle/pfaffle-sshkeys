@@ -1,0 +1,31 @@
+# SSH Configuration file
+#
+# Host definitions
+Host reaver
+	HostName        reaver.cat.pdx.edu
+Host serenity
+	HostName        serenity.cat.pdx.edu
+Host jabberwock
+	HostName        jabberwock.pfaffle.net
+Host rita
+	HostName        rita.cat.pdx.edu
+Host chandra
+	HostName        chandra.cs.pdx.edu
+Host odin
+	HostName        freke.odin.pdx.edu
+	User            cmeinsch
+Host mux
+	HostName        multiplexor.seas.pdx.edu
+Host nemo
+	HostName        nemo.ece.pdx.edu
+Host linuxlab
+	HostName        linuxlab.cs.pdx.edu
+Host fab??
+	HostName        %h.cecs.pdx.edu
+Host arbiter
+	HostName        arbiter.cat.pdx.edu
+
+# General configs
+VerifyHostKeyDNS  yes
+Host *
+	IdentityFile    ~/.ssh/id_%l
