@@ -8,7 +8,7 @@ LS=`which ls`
 CP=`which cp`
 BASEDIR=$(dirname $0)
 SSH_DIR="${HOME}/.ssh"
-AUTH_KEYS_FILE="${BASEDIR}/authorized_keys"
+AUTH_KEYS_FILE="${SSH_DIR}/authorized_keys"
 
 # Parse cmd line args.
 if [ "$1" == "-f" ]; then
