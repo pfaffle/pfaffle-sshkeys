@@ -24,6 +24,8 @@ Host fab??
 	HostName        %h.cecs.pdx.edu
 Host arbiter
 	HostName        arbiter.cat.pdx.edu
+Host stargate
+	HostName        stargate.cat.pdx.edu
 
 # General configs
 VerifyHostKeyDNS  yes
