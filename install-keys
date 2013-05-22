@@ -11,7 +11,7 @@ SSH_DIR="${HOME}/.ssh"
 AUTH_KEYS_FILE="${SSH_DIR}/authorized_keys"
 
 # Parse cmd line args.
-if [ $1 -eq "-f" ]; then
+if [ "$1" == "-f" ]; then
 	echo "Replacing all keys in authorized_keys file."
 	if [ -s "${AUTH_KEYS_FILE}" ]; then
 		rm -f "${AUTH_KEYS_FILE}"
