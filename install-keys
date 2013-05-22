@@ -22,18 +22,8 @@ else
 	exit 1
 fi
 
-# Create user's SSH directory if it doesn't exist.
-if [ ! -d "${SSH_DIR}" ]; then
-	mkdir "${SSH_DIR}"
-	chmod 0700 "${SSH_DIR}"
-fi
-
 # Add public keys to authorized_keys file.
 for PUBKEY in `${LS} ${BASEDIR}/keys/*.pub`; do
 	cat "${PUBKEY}" >> "${AUTH_KEYS_FILE}"
 	chmod 0600 "${AUTH_KEYS_FILE}"
 done
-
-# Replace SSH config
-cp -f "${BASEDIR}/config" "${SSH_DIR}/config"
-chmod 0600 "${SSH_DIR}/config"

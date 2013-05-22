@@ -1,0 +1,9 @@
+#!/bin/sh
+# Installs new SSH config file.
+BASEDIR=`dirname $0`
+SSH_DIR="${HOME}/.ssh"
+CONFIG_FILE="${SSH_DIR}/config"
+
+# Replace SSH config
+cp -f "${BASEDIR}/config" "${CONFIG_FILE}"
+chmod 0600 "${CONFIG_FILE}"
