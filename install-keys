@@ -5,32 +5,36 @@
 
 # Define variables
 LS=`which ls`
+CP=`which cp`
 BASEDIR=$(dirname $0)
+SSH_DIR="${HOME}/.ssh"
 AUTH_KEYS_FILE="${BASEDIR}/authorized_keys"
 
 # Parse cmd line args.
 if [ "$1" == "-f" ]; then
 	echo "Replacing all keys in authorized_keys file."
-	if [ -s ${AUTH_KEYS_FILE} ]; then
-		rm -f ${AUTH_KEYS_FILE}
-		echo "Removed authorized_keys file."
+	if [ -s "${AUTH_KEYS_FILE}" ]; then
+		rm -f "${AUTH_KEYS_FILE}"
 	fi
 elif [ -z "$1" ]; then
 	echo "Adding keys to authorized_keys file."
 else
 	echo "Usage: install-keys [-f]"
-	exit(1)
+	exit 1
 fi
 
-# Create ~/.ssh folder if it doesn't exist.
-if [ ! -d ~/.ssh ]; then
-	mkdir ~/.ssh
-	chmod 0700 ~/.ssh
+# Create user's SSH directory if it doesn't exist.
+if [ ! -d "${SSH_DIR}" ]; then
+	mkdir "${SSH_DIR}"
+	chmod 0700 "${SSH_DIR}"
 fi
 
 # Add public keys to authorized_keys file.
 for PUBKEY in `${LS} ${BASEDIR}/keys/*.pub`; do
-	#cat ${PUBKEY} >> ${AUTH_KEYS_FILE}
-	#chmod 0600 ${AUTH_KEYS_FILE}
+	cat "${PUBKEY}" >> "${AUTH_KEYS_FILE}"
+	chmod 0600 "${AUTH_KEYS_FILE}"
 done
-echo "Done."
+
+# Replace SSH config
+${CP} -f "${BASEDIR}/config" "${SSH_DIR}/config"
+chmod 0600 "${SSH_DIR}/config"
