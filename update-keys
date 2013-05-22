@@ -1,0 +1,7 @@
+#!/bin/sh
+# Script meant to be run as a cron to update the git repo
+# regularly with my latest ssh keys.
+GIT=`which git`
+
+cd ~/.ssh/pfaffle-sshkeys
+${GIT} pull origin master
