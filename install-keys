@@ -5,7 +5,6 @@
 
 # Define variables
 LS=`which ls`
-CP=`which cp`
 BASEDIR=`dirname $0`
 SSH_DIR="${HOME}/.ssh"
 AUTH_KEYS_FILE="${SSH_DIR}/authorized_keys"
@@ -36,5 +35,5 @@ for PUBKEY in `${LS} ${BASEDIR}/keys/*.pub`; do
 done
 
 # Replace SSH config
-${CP} -f "${BASEDIR}/config" "${SSH_DIR}/config"
+cp -f "${BASEDIR}/config" "${SSH_DIR}/config"
 chmod 0600 "${SSH_DIR}/config"
