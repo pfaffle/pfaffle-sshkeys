@@ -2,13 +2,35 @@
 # Installs the ssh keys in the keys directory
 # to the authorized_keys file for this user
 # account on this machine.
+
+# Define variables
 LS=`which ls`
 BASEDIR=$(dirname $0)
+AUTH_KEYS_FILE="${BASEDIR}/authorized_keys"
+
+# Parse cmd line args.
+if [ "$1" == "-f" ]; then
+	echo "Replacing all keys in authorized_keys file."
+	if [ -s ${AUTH_KEYS_FILE} ]; then
+		rm -f ${AUTH_KEYS_FILE}
+		echo "Removed authorized_keys file."
+	fi
+elif [ -z "$1" ]; then
+	echo "Adding keys to authorized_keys file."
+else
+	echo "Usage: install-keys [-f]"
+	exit(1)
+fi
+
+# Create ~/.ssh folder if it doesn't exist.
 if [ ! -d ~/.ssh ]; then
 	mkdir ~/.ssh
 	chmod 0700 ~/.ssh
 fi
+
+# Add public keys to authorized_keys file.
 for PUBKEY in `${LS} ${BASEDIR}/keys/*.pub`; do
-	cat ${PUBKEY} >> ${BASEDIR}/authorized_keys
-	chmod 0600 ${BASEDIR}/authorized_keys
+	#cat ${PUBKEY} >> ${AUTH_KEYS_FILE}
+	#chmod 0600 ${AUTH_KEYS_FILE}
 done
+echo "Done."
