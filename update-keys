@@ -3,5 +3,5 @@
 # regularly with my latest ssh keys.
 GIT=`which git`
 
-cd ~/.ssh/pfaffle-sshkeys
+cd ${HOME}/.ssh/pfaffle-sshkeys
 ${GIT} pull origin master
