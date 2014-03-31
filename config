@@ -26,6 +26,10 @@ Host arbiter
 	HostName        arbiter.cat.pdx.edu
 Host stargate
 	HostName        stargate.cat.pdx.edu
+Host epiflat
+	HostName	epiflat.jasonaowen.net
+Host thyone
+	HostName	epiflat.jasonaowen.net
 
 # General configs
 VerifyHostKeyDNS  yes
