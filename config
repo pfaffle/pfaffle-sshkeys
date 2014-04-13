@@ -33,7 +33,7 @@ Host stargate
 Host eve
   HostName        eve.ece.pdx.edu
 Host walle
-  HostNmae        walle.ece.pdx.edu
+  HostName        walle.ece.pdx.edu
 Host ada
   HostName        ada.cs.pdx.edu
 
