@@ -1,37 +1,53 @@
 # SSH Configuration file
 #
-# Host definitions
+# Jumphosts
 Host reaver
-	HostName        reaver.cat.pdx.edu
+  HostName        reaver.cat.pdx.edu
 Host serenity
-	HostName        serenity.cat.pdx.edu
+  HostName        serenity.cat.pdx.edu
+Host destiny
+  HostName        destiny.cat.pdx.edu
 Host jabberwock
-	HostName        jabberwock.pfaffle.net
-Host rita
-	HostName        rita.cat.pdx.edu
-Host chandra
-	HostName        chandra.cs.pdx.edu
+  HostName        jabberwock.pfaffle.net
+Host home
+  HostName        jabberwock.home.pfaffle.net
+
+# Assorted CAT/OIT boxes.
 Host odin
-	HostName        freke.odin.pdx.edu
-	User            cmeinsch
-Host mux
-	HostName        multiplexor.seas.pdx.edu
+  HostName        freke.odin.pdx.edu
+  User            cmeinsch
+Host rita
+  HostName        rita.cat.pdx.edu
+Host chandra
+  HostName        chandra.cs.pdx.edu
 Host nemo
-	HostName        nemo.ece.pdx.edu
+  HostName        nemo.ece.pdx.edu
 Host linuxlab
-	HostName        linuxlab.cs.pdx.edu
+  HostName        linuxlab.cs.pdx.edu
 Host fab??
-	HostName        %h.cecs.pdx.edu
+  HostName        %h.cecs.pdx.edu
 Host arbiter
-	HostName        arbiter.cat.pdx.edu
+  HostName        arbiter.cat.pdx.edu
 Host stargate
-	HostName        stargate.cat.pdx.edu
+  HostName        stargate.cat.pdx.edu
+Host eve
+  HostName        eve.ece.pdx.edu
+Host walle
+  HostNmae        walle.ece.pdx.edu
+Host ada
+  HostName        ada.cs.pdx.edu
+
+# Switches
+Host mux
+  HostName        multiplexor.seas.pdx.edu
+
+# Other
 Host epiflat
-	HostName	epiflat.jasonaowen.net
+  HostName        epiflat.jasonaowen.net
 Host thyone
-	HostName	epiflat.jasonaowen.net
+  HostName        epiflat.jasonaowen.net
 
 # General configs
-VerifyHostKeyDNS  yes
 Host *
-	IdentityFile    ~/.ssh/id_%l
+  VerifyHostKeyDNS  yes
+  IdentityFile    ~/.ssh/id_rsa
