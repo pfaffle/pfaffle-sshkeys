@@ -9,45 +9,17 @@ Host destiny
   HostName        destiny.cat.pdx.edu
 Host jabberwock
   HostName        jabberwock.pfaffle.net
-Host home
-  HostName        jabberwock.home.pfaffle.net
+Host alice
+  HostName        alice.pfaffle.net
 
 # Assorted CAT/OIT boxes.
-Host odin
-  HostName        freke.odin.pdx.edu
-  User            cmeinsch
 Host rita
   HostName        rita.cat.pdx.edu
-Host chandra
-  HostName        chandra.cs.pdx.edu
-Host nemo
-  HostName        nemo.ece.pdx.edu
-Host linuxlab
-  HostName        linuxlab.cs.pdx.edu
-Host fab??
-  HostName        %h.cecs.pdx.edu
-Host arbiter
-  HostName        arbiter.cat.pdx.edu
-Host stargate
-  HostName        stargate.cat.pdx.edu
-Host eve
-  HostName        eve.ece.pdx.edu
-Host walle
-  HostName        walle.ece.pdx.edu
-Host ada
-  HostName        ada.cs.pdx.edu
-
-# Switches
-Host mux
-  HostName        multiplexor.seas.pdx.edu
 
 # Other
 Host epiflat
-  HostName        epiflat.jasonaowen.net
-Host thyone
   HostName        epiflat.jasonaowen.net
 
 # General configs
 Host *
   VerifyHostKeyDNS  yes
-  IdentityFile    ~/.ssh/id_rsa

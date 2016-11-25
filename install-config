@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Installs new SSH config file.
 BASEDIR=`dirname $0`
 SSH_DIR="${HOME}/.ssh"
