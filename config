@@ -1,25 +1,13 @@
 # SSH Configuration file
 #
-# Jumphosts
-Host reaver
-  HostName        reaver.cat.pdx.edu
-Host serenity
-  HostName        serenity.cat.pdx.edu
-Host destiny
-  HostName        destiny.cat.pdx.edu
-Host jabberwock
-  HostName        jabberwock.pfaffle.net
-Host alice
-  HostName        alice.pfaffle.net
-
-# Assorted CAT/OIT boxes.
-Host rita
-  HostName        rita.cat.pdx.edu
-
-# Other
-Host epiflat
-  HostName        epiflat.jasonaowen.net
-
-# General configs
 Host *
-  VerifyHostKeyDNS  yes
+  User pfaffle
+  VerifyHostKeyDNS yes
+
+Host jabberwock
+  HostName jabberwock.pfaffle.net
+Host alice
+  HostName alice.pfaffle.net
+Host epiflat
+  HostName epiflat.jasonaowen.net
+

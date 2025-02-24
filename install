@@ -1,0 +1,29 @@
+#!/bin/bash
+# Installs ssh keys into ~/.ssh/authorized_keys, and the ssh config
+# file into ~/.ssh/config for the current user account on the current
+# machine.
+set -x
+
+# Define variables
+BASEDIR=$(dirname $0)
+SSH_DIR="$HOME/.ssh"
+AUTH_KEYS_FILE="$SSH_DIR/authorized_keys"
+CONFIG_FILE="${SSH_DIR}/config"
+
+mkdir -p "$SSH_DIR"
+
+# Install public keys into authorized_keys file.
+if [ -f $AUTH_KEYS_FILE ]; then
+  rm -f "$AUTH_KEYS_FILE"
+fi
+for PUBKEY in `ls $BASEDIR/keys/*.pub`; do
+  cat "$PUBKEY" >> "$AUTH_KEYS_FILE"
+  chmod 0600 "$AUTH_KEYS_FILE"
+done
+
+# Install SSH config
+if [ -f $CONFIG_FILE ]; then
+  rm -f "$CONFIG_FILE"
+fi
+cp "$BASEDIR/config" "$CONFIG_FILE"
+chmod 0600 "$CONFIG_FILE"
