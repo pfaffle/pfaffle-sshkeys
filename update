@@ -4,12 +4,13 @@
 BASEDIR=$(dirname $0)
 LATEST_FILE="$BASEDIR/latest"
 LATEST_HASH=$(cat "$LATEST_FILE" 2>/dev/null)
+
+cd $BASEDIR
+git pull 1>/dev/null
 CURRENT_HASH=$(git log -n1 --format=%h)
 
-git pull 1>/dev/null
-
 if [ "$LATEST_HASH" != "$CURRENT_HASH" ]; then
-	echo "Installing updates"
-	./install
-	echo "$CURRENT_HASH" > "$LATEST_FILE"
+  echo "Installing updates"
+  ./install
+  echo "$CURRENT_HASH" > "$LATEST_FILE"
 fi
